@@ -12,6 +12,8 @@
 ## Main Functionalities
 This module adds a back to top navigation when scrolling down the page
 
+@todo Improve the javascript which is really bad...
+
 ## Installation
 \* = in production please use the `--keep-generated` option
 
@@ -24,10 +26,6 @@ This module adds a back to top navigation when scrolling down the page
 
 ### Type 2: Composer
 
- - Make the module available in a composer repository for example:
-    - private repository `repo.magento.com`
-    - public repository `packagist.org`
-    - public github repository as vcs
  - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
  - Install the module composer by running `composer require catgento/module-backtotopnavigation`
  - enable the module by running `php bin/magento module:enable Catgento_BackToTopNavigation`
@@ -46,14 +44,4 @@ This module adds a back to top navigation when scrolling down the page
  - text_color (design/back_to_top_navigation/text_color)
 
  - visibility (design/back_to_top_navigation/visibility)
-
-
-## Specifications
-
-
-
-
-## Attributes
-
-
 

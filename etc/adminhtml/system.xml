@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="catgento" sortOrder="999" translate="label">
+			<label>Catgento</label>
+		</tab>
+		<section id="design" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Design</label>
+			<tab>catgento</tab>
+			<resource>Catgento_BackToTopNavigation::config_catgento_backtotopnavigation</resource>
+			<group id="back_to_top_navigation" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Back to Top Navigation</label>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>enable</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="background_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+					<label>Button Background Color</label>
+					<comment>Hexadecimal value: #4a4a4a</comment>
+				</field>
+				<field id="display_offset" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Display offset</label>
+					<comment>Int value. Offset after which the back to top button will be displayed</comment>
+				</field>
+				<field id="text_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+					<label>text_color</label>
+                    <comment>Hexadecimal value: #FFFFFF</comment>
+				</field>
+				<field id="visibility" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label" type="select">
+					<label>visibility</label>
+                    <comment>Default break point is 768px</comment>
+					<source_model>Catgento\BackToTopNavigation\Model\Config\Source\Visibility</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

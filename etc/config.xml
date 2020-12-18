@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<design>
+			<back_to_top_navigation>
+                <enable>0</enable>
+				<background_color>#4A4A4A</background_color>
+				<display_offset>200</display_offset>
+                <text_color>#FFFFFF</text_color>
+                <visibility>both</visibility>
+			</back_to_top_navigation>
+		</design>
+	</default>
+</config>

@@ -1,0 +1,75 @@
+<?php /* @var $block \Catgento\BackToTopNavigation\Block\BackToTopNavigation */ ?>
+<?php
+$displayOffset = $block->getConfigValue('design/back_to_top_navigation/display_offset');
+$visibility = $block->getConfigValue('design/back_to_top_navigation/visibility');
+?>
+<div style="<?= $block->getStyle() ?>" class="back-top"><?= __('Back to top'); ?></div>
+
+<script>
+    require([
+        'jquery',
+        'matchMedia'
+    ], function ($) {
+        // Back to top
+        var btn = $('.back-top');
+
+        <?php if ($visibility != 'both'): ?>
+        mediaCheck({
+            media: '(min-width: 768px)',
+
+            <?php if ($visibility == 'desktop'): ?>
+            /**
+             * Switch to Desktop Version.
+             */
+            entry: function () {
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() > <?= $displayOffset ?>) {
+                        btn.fadeIn();
+                    } else {
+                        btn.fadeOut();
+                    }
+                });
+
+                btn.on('click', function(e) {
+                    e.preventDefault();
+                    $('html, body').animate({scrollTop:0}, '300');
+                });
+            },
+            <?php endif; ?>
+
+            <?php if ($visibility == 'mobile'): ?>
+            /**
+             * Switch to Mobile Version.
+             */
+            exit: function () {
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() > <?= $displayOffset ?>) {
+                        btn.fadeIn();
+                    } else {
+                        btn.fadeOut();
+                    }
+                });
+
+                btn.on('click', function(e) {
+                    e.preventDefault();
+                    $('html, body').animate({scrollTop:0}, '300');
+                });
+            }
+            <?php endif; ?>
+        });
+        <?php else: ?>
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > <?= $displayOffset ?>) {
+                btn.fadeIn();
+            } else {
+                btn.fadeOut();
+            }
+        });
+
+        btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+        });
+        <?php endif; ?>
+    });
+</script>

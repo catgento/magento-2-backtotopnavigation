@@ -11,26 +11,30 @@
 			<group id="back_to_top_navigation" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
 				<label>Back to Top Navigation</label>
 				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
-					<label>enable</label>
+					<label>Enable</label>
 					<comment/>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
-				<field id="background_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+                <field id="visibility" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+                    <label>Visibility</label>
+                    <comment>Default break point is 768px</comment>
+                    <source_model>Catgento\BackToTopNavigation\Model\Config\Source\Visibility</source_model>
+                </field>
+                <field id="breakpoint" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+                    <label>Breakpoint</label>
+                    <comment>Int value: 768. Responsiveness breakpoint</comment>
+                </field>
+                <field id="display_offset" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+                    <label>Display offset</label>
+                    <comment>Int value. Offset after which the back to top button will be displayed</comment>
+                </field>
+				<field id="background_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
 					<label>Button Background Color</label>
 					<comment>Hexadecimal value: #4a4a4a</comment>
 				</field>
-				<field id="display_offset" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
-					<label>Display offset</label>
-					<comment>Int value. Offset after which the back to top button will be displayed</comment>
-				</field>
-				<field id="text_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
-					<label>text_color</label>
+				<field id="text_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
+					<label>Button Text Color</label>
                     <comment>Hexadecimal value: #FFFFFF</comment>
-				</field>
-				<field id="visibility" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label" type="select">
-					<label>visibility</label>
-                    <comment>Default break point is 768px</comment>
-					<source_model>Catgento\BackToTopNavigation\Model\Config\Source\Visibility</source_model>
 				</field>
 			</group>
 		</section>

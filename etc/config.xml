@@ -8,6 +8,7 @@
 				<display_offset>200</display_offset>
                 <text_color>#FFFFFF</text_color>
                 <visibility>both</visibility>
+                <breakpoint>768</breakpoint>
 			</back_to_top_navigation>
 		</design>
 	</default>

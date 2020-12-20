@@ -2,6 +2,7 @@
 <?php
 $displayOffset = $block->getConfigValue('design/back_to_top_navigation/display_offset');
 $visibility = $block->getConfigValue('design/back_to_top_navigation/visibility');
+$breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint');
 ?>
 <div style="<?= $block->getStyle() ?>" class="back-top"><?= __('Back to top'); ?></div>
 
@@ -11,29 +12,17 @@ $visibility = $block->getConfigValue('design/back_to_top_navigation/visibility')
         'matchMedia'
     ], function ($) {
         // Back to top
-        var btn = $('.back-top');
 
         <?php if ($visibility != 'both'): ?>
         mediaCheck({
-            media: '(min-width: 768px)',
+            media: '(min-width: <?= $breakpoint ?>px)',
 
             <?php if ($visibility == 'desktop'): ?>
             /**
              * Switch to Desktop Version.
              */
             entry: function () {
-                $(window).scroll(function() {
-                    if ($(window).scrollTop() > <?= $displayOffset ?>) {
-                        btn.fadeIn();
-                    } else {
-                        btn.fadeOut();
-                    }
-                });
-
-                btn.on('click', function(e) {
-                    e.preventDefault();
-                    $('html, body').animate({scrollTop:0}, '300');
-                });
+                initBackToTopNavigation();
             },
             <?php endif; ?>
 
@@ -42,34 +31,29 @@ $visibility = $block->getConfigValue('design/back_to_top_navigation/visibility')
              * Switch to Mobile Version.
              */
             exit: function () {
-                $(window).scroll(function() {
-                    if ($(window).scrollTop() > <?= $displayOffset ?>) {
-                        btn.fadeIn();
-                    } else {
-                        btn.fadeOut();
-                    }
-                });
-
-                btn.on('click', function(e) {
-                    e.preventDefault();
-                    $('html, body').animate({scrollTop:0}, '300');
-                });
+                initBackToTopNavigation();
             }
             <?php endif; ?>
         });
         <?php else: ?>
-        $(window).scroll(function() {
-            if ($(window).scrollTop() > <?= $displayOffset ?>) {
-                btn.fadeIn();
-            } else {
-                btn.fadeOut();
-            }
-        });
-
-        btn.on('click', function(e) {
-            e.preventDefault();
-            $('html, body').animate({scrollTop:0}, '300');
-        });
+        initBackToTopNavigation();
         <?php endif; ?>
+
+        function initBackToTopNavigation() {
+            var btn = $('.back-top');
+
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > <?= $displayOffset ?>) {
+                    btn.fadeIn();
+                } else {
+                    btn.fadeOut();
+                }
+            });
+
+            btn.on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop:0}, '300');
+            });
+        }
     });
 </script>

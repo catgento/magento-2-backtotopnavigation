@@ -1,9 +1,9 @@
 {
-    "name": "catgento/module-backtotopnavigation",
+    "name": "catgento/magento-2-backtotopnavigation",
     "description": "This module adds a back to top navigation when scrolling down the page",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "0.9.0",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Pau Iranzo",
@@ -17,7 +17,8 @@
     },
     "keywords": [
         "magento 2",
-        "magento2-module"
+        "magento2-module",
+        "magento2-extension"
     ],
     "autoload": {
         "files": [

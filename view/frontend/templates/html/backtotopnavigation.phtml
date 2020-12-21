@@ -1,8 +1,8 @@
 <?php /* @var $block \Catgento\BackToTopNavigation\Block\BackToTopNavigation */ ?>
 <?php
-$displayOffset = $block->escapeHtml($block->getConfigValue('design/back_to_top_navigation/display_offset'));
-$visibility = $block->escapeHtml($block->getConfigValue('design/back_to_top_navigation/visibility'));
-$breakpoint = $block->escapeHtml($block->getConfigValue('design/back_to_top_navigation/breakpoint'));
+$displayOffset = $block->getConfigValue('design/back_to_top_navigation/display_offset');
+$visibility = $block->getConfigValue('design/back_to_top_navigation/visibility');
+$breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint');
 ?>
 <div style="<?= $block->getStyle() ?>" class="back-top"><?= __('Back to top'); ?></div>
 
@@ -15,7 +15,7 @@ $breakpoint = $block->escapeHtml($block->getConfigValue('design/back_to_top_navi
 
         <?php if ($visibility != 'both'): ?>
         mediaCheck({
-            media: '(min-width: <?= $breakpoint ?>px)',
+            media: '(min-width: <?= $block->escapeHtml($breakpoint) ?>px)',
 
             <?php if ($visibility == 'desktop'): ?>
             /**
@@ -43,7 +43,7 @@ $breakpoint = $block->escapeHtml($block->getConfigValue('design/back_to_top_navi
             var btn = $('.back-top');
 
             $(window).scroll(function() {
-                if ($(window).scrollTop() > <?= $displayOffset ?>) {
+                if ($(window).scrollTop() > <?= $block->escapeHtml($displayOffset) ?>) {
                     btn.fadeIn();
                 } else {
                     btn.fadeOut();

@@ -18,7 +18,8 @@ use Magento\Store\Model\ScopeInterface;
 
 class BackToTopNavigation extends Template implements \Magento\Widget\Block\BlockInterface
 {
-    private ScopeConfigInterface $scopeConfig;
+    /** @var ScopeConfigInterface  */
+    private $scopeConfig;
 
     /**
      * Whatsapp constructor.
@@ -30,8 +31,7 @@ class BackToTopNavigation extends Template implements \Magento\Widget\Block\Bloc
         StoreManagerInterface $storeManager,
         ScopeConfigInterface $scopeConfig,
         Template\Context $context
-    )
-    {
+    ) {
         $this->scopeConfig = $scopeConfig;
         $this->_storeManager = $storeManager;
 

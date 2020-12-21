@@ -4,7 +4,7 @@ $displayOffset = $block->getConfigValue('design/back_to_top_navigation/display_o
 $visibility = $block->getConfigValue('design/back_to_top_navigation/visibility');
 $breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint');
 ?>
-<div style="<?= $block->getStyle() ?>" class="back-top"><?= __('Back to top'); ?></div>
+<div style="<?= $block->escapeHtml($block->getStyle()) ?>" class="back-top"><?= $block->escapeHtml(__('Back to top')); ?></div>
 
 <script>
     require([

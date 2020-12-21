@@ -12,6 +12,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": "~7.4.0",
         "magento/framework": ">=100.0.0",
         "magento/module-backend": ">=100.0.0"
     },

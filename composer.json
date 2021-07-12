@@ -3,7 +3,7 @@
     "description": "This module adds a back to top navigation when scrolling down the page",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Pau Iranzo",

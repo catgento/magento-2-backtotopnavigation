@@ -62,6 +62,7 @@ class BackToTopNavigation extends Template implements \Magento\Widget\Block\Bloc
         $style = '';
         $background = $this->getConfigValue('design/back_to_top_navigation/background_color');
         $textColor = $this->getConfigValue('design/back_to_top_navigation/text_color');
+        $topOffset = $this->getConfigValue('design/back_to_top_navigation/top_offset');
 
         if ($background) {
             $style .= 'background-color: ' . $background . ';';
@@ -69,6 +70,10 @@ class BackToTopNavigation extends Template implements \Magento\Widget\Block\Bloc
 
         if ($textColor) {
             $style .= 'color: ' . $textColor . ';';
+        }
+
+        if ($topOffset) {
+            $style .= 'top: ' . $topOffset . ';';
         }
 
         return $style;

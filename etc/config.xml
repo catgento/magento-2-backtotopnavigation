@@ -6,6 +6,7 @@
                 <enable>0</enable>
 				<background_color>#4A4A4A</background_color>
 				<display_offset>200</display_offset>
+				<top_offset>30</top_offset>
                 <text_color>#FFFFFF</text_color>
                 <visibility>both</visibility>
                 <breakpoint>768</breakpoint>

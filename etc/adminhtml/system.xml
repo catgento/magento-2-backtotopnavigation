@@ -28,6 +28,10 @@
                     <label>Display offset</label>
                     <comment>Int value. Offset after which the back to top button will be displayed</comment>
                 </field>
+				<field id="top_offset" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="45" translate="label" type="text">
+					<label>Top offset</label>
+					<comment>Int value. Distance between the button and the top of the page</comment>
+				</field>
 				<field id="background_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
 					<label>Button Background Color</label>
 					<comment>Hexadecimal value: #4a4a4a</comment>

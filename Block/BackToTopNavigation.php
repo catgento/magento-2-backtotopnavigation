@@ -53,6 +53,14 @@ class BackToTopNavigation extends Template implements \Magento\Widget\Block\Bloc
     }
 
     /**
+     * @return string
+     */
+    public function getButtonText()
+    {
+        return $this->getConfigValue('design/back_to_top_navigation/button_text');
+    }
+
+    /**
      * Returns the styles for the back to top button
      *
      * @return string

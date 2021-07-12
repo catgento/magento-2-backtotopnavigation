@@ -5,7 +5,7 @@ $visibility = $block->getConfigValue('design/back_to_top_navigation/visibility')
 $breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint');
 ?>
 <div style="<?= $block->escapeHtml($block->getStyle()) ?>" class="back-top">
-    <?= $block->escapeHtml(__('Back to top')); ?>
+    <?= $block->escapeHtml($block->getButtonText()); ?>
 </div>
 
 <script>
@@ -13,8 +13,6 @@ $breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint')
         'jquery',
         'matchMedia'
     ], function ($) {
-        // Back to top
-
         <?php if ($visibility != 'both'): ?>
         mediaCheck({
             media: '(min-width: <?= $block->escapeHtml($breakpoint) ?>px)',

@@ -4,6 +4,7 @@
 		<design>
 			<back_to_top_navigation>
                 <enable>0</enable>
+				<button_text>Back to Top</button_text>
 				<background_color>#4A4A4A</background_color>
 				<display_offset>200</display_offset>
 				<top_offset>30</top_offset>

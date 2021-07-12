@@ -15,6 +15,10 @@
 					<comment/>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
+				<field id="button_text" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Button Text</label>
+					<comment/>
+				</field>
                 <field id="visibility" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
                     <label>Visibility</label>
                     <comment>Default break point is 768px</comment>

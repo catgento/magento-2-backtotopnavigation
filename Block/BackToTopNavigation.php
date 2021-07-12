@@ -81,7 +81,7 @@ class BackToTopNavigation extends Template implements \Magento\Widget\Block\Bloc
         }
 
         if ($topOffset) {
-            $style .= 'top: ' . $topOffset . ';';
+            $style .= 'top: ' . $topOffset . 'px;';
         }
 
         return $style;

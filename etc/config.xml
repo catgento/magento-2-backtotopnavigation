@@ -6,8 +6,10 @@
                 <enable>0</enable>
 				<button_text>Back to Top</button_text>
 				<background_color>#4A4A4A</background_color>
-				<display_offset>200</display_offset>
-				<top_offset>30</top_offset>
+				<display_offset_desktop>200</display_offset_desktop>
+				<display_offset_mobile>200</display_offset_mobile>
+				<top_offset_desktop>30</top_offset_desktop>
+				<top_offset_mobile>30</top_offset_mobile>
                 <text_color>#FFFFFF</text_color>
                 <visibility>both</visibility>
                 <breakpoint>768</breakpoint>

@@ -67,22 +67,34 @@ class BackToTopNavigation extends Template implements \Magento\Widget\Block\Bloc
      */
     public function getStyle()
     {
-        $style = '';
         $background = $this->getConfigValue('design/back_to_top_navigation/background_color');
         $textColor = $this->getConfigValue('design/back_to_top_navigation/text_color');
-        $topOffset = $this->getConfigValue('design/back_to_top_navigation/top_offset');
+        $topOffsetDesktop = $this->getConfigValue('design/back_to_top_navigation/top_offset_desktop');
+        $topOffsetMobile = $this->getConfigValue('design/back_to_top_navigation/top_offset_mobile');
+        $breakpoint = $this->getConfigValue('design/back_to_top_navigation/breakpoint');
 
-        if ($background) {
-            $style .= 'background-color: ' . $background . ';';
-        }
+        $backgroundColor = $background ? 'background-color: ' . $background . ';' : '';
+        $textColor = $textColor ? 'color: ' . $textColor . ';' : '';
+        $topOffsetDesktop = $topOffsetDesktop ? 'top: ' . $topOffsetDesktop . 'px;' : '';
+        $topOffsetMobile = $topOffsetMobile ? 'top: ' . $topOffsetMobile . 'px;' : '';
 
-        if ($textColor) {
-            $style .= 'color: ' . $textColor . ';';
-        }
-
-        if ($topOffset) {
-            $style .= 'top: ' . $topOffset . 'px;';
-        }
+        $style = "<style>
+            .back-top {
+                ".$backgroundColor."
+                ".$textColor."
+            }
+            
+            @media only screen and (min-width: ".$breakpoint."px) {
+              .back-top {
+                $topOffsetDesktop
+              }
+            }
+            @media only screen and (max-width: ".$breakpoint."px) {
+              .back-top {
+                $topOffsetMobile
+              }
+            }
+        </style>";
 
         return $style;
     }

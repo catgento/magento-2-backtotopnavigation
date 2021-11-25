@@ -1,11 +1,17 @@
-<?php /* @var $block \Catgento\BackToTopNavigation\Block\BackToTopNavigation */ ?>
 <?php
-$displayOffset = $block->getConfigValue('design/back_to_top_navigation/display_offset');
+/** @var $block \Catgento\BackToTopNavigation\Block\BackToTopNavigation */
+/** @var $escaper \Magento\Framework\Escaper */
+?>
+<?php
+$displayOffsetDesktop = $block->getConfigValue('design/back_to_top_navigation/display_offset_desktop');
+$displayOffsetMobile = $block->getConfigValue('design/back_to_top_navigation/display_offset_mobile');
 $visibility = $block->getConfigValue('design/back_to_top_navigation/visibility');
 $breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint');
 ?>
-<div style="<?= $block->escapeHtml($block->getStyle()) ?>" class="back-top">
-    <?= $block->escapeHtml($block->getButtonText()); ?>
+<?= $block->getStyle() ?>
+
+<div class="back-top">
+    <?= $escaper->escapeHtml($block->getButtonText()); ?>
 </div>
 
 <script>
@@ -13,47 +19,48 @@ $breakpoint = $block->getConfigValue('design/back_to_top_navigation/breakpoint')
         'jquery',
         'matchMedia'
     ], function ($) {
-        <?php if ($visibility != 'both'): ?>
         mediaCheck({
-            media: '(min-width: <?= $block->escapeHtml($breakpoint) ?>px)',
+            media: '(min-width: <?= $escaper->escapeHtml($breakpoint) ?>px)',
 
-            <?php if ($visibility == 'desktop'): ?>
             /**
              * Switch to Desktop Version.
              */
             entry: function () {
-                initBackToTopNavigation();
-            },
-            <?php endif; ?>
+                var btn = $('.back-top');
 
-            <?php if ($visibility == 'mobile'): ?>
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() > <?= $escaper->escapeHtml($displayOffsetDesktop) ?>) {
+                        btn.fadeIn();
+                    } else {
+                        btn.fadeOut();
+                    }
+                });
+
+                btn.on('click', function(e) {
+                    e.preventDefault();
+                    $('html, body').animate({scrollTop:0}, '300');
+                });
+            },
+
             /**
              * Switch to Mobile Version.
              */
             exit: function () {
-                initBackToTopNavigation();
+                var btn = $('.back-top');
+
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() > <?= $escaper->escapeHtml($displayOffsetDesktop) ?>) {
+                        btn.fadeIn();
+                    } else {
+                        btn.fadeOut();
+                    }
+                });
+
+                btn.on('click', function(e) {
+                    e.preventDefault();
+                    $('html, body').animate({scrollTop:0}, '300');
+                });
             }
-            <?php endif; ?>
         });
-        <?php else: ?>
-        initBackToTopNavigation();
-        <?php endif; ?>
-
-        function initBackToTopNavigation() {
-            var btn = $('.back-top');
-
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > <?= $block->escapeHtml($displayOffset) ?>) {
-                    btn.fadeIn();
-                } else {
-                    btn.fadeOut();
-                }
-            });
-
-            btn.on('click', function(e) {
-                e.preventDefault();
-                $('html, body').animate({scrollTop:0}, '300');
-            });
-        }
     });
 </script>
